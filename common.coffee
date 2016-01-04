@@ -9,5 +9,6 @@ Helpers =
   isDirectUserSelector: (selector) ->
     _.isString(selector) or
       _.isString(selector?._id) or
-      _.isString(selector?.username)
-
+      _.isString(selector?.username) or
+      _.isString(selector?['emails.address']) or
+      (_.isObject(selector?._id) and selector._id.$in?)
